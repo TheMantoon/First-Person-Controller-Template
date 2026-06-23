@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f117a9f8aec6443ad1930020202f44, type: 3}
+  m_Name: Template Input Database
+  m_EditorClassIdentifier: Assembly-CSharp::InputDatabase
+  actions:
+  - actionName: LookX
+    inputType: 1
+    button:
+      primaryKey: 0
+      secondaryKey: 0
+    axis:
+      source: 0
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: LookY
+    inputType: 1
+    button:
+      primaryKey: 0
+      secondaryKey: 0
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Move
+    inputType: 2
+    button:
+      primaryKey: 0
+      secondaryKey: 0
+    axis:
+      source: 0
+      sensitivity: 0
+    vector2:
+      up: 119
+      down: 115
+      left: 97
+      right: 100
+  - actionName: Sprint
+    inputType: 0
+    button:
+      primaryKey: 304
+      secondaryKey: 0
+    axis:
+      source: 0
+      sensitivity: 0
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Jump
+    inputType: 0
+    button:
+      primaryKey: 32
+      secondaryKey: 0
+    axis:
+      source: 0
+      sensitivity: 0
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Crouch
+    inputType: 0
+    button:
+      primaryKey: 306
+      secondaryKey: 99
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Interact
+    inputType: 0
+    button:
+      primaryKey: 101
+      secondaryKey: 0
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Drop
+    inputType: 0
+    button:
+      primaryKey: 113
+      secondaryKey: 8
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Pause
+    inputType: 0
+    button:
+      primaryKey: 27
+      secondaryKey: 0
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Shoot
+    inputType: 0
+    button:
+      primaryKey: 323
+      secondaryKey: 0
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
+  - actionName: Reload
+    inputType: 0
+    button:
+      primaryKey: 114
+      secondaryKey: 0
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0

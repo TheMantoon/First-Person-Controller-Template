@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 648552b77f7b1814b92f4e2e89068752
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pivot: {instanceID: 0}
+  - openClip: {fileID: 8300000, guid: c0acf3c4f1989c944aa811c6a3909b19, type: 3}
+  - closeClip: {fileID: 8300000, guid: 187e27cce7aac6342aa17489f1d9ac3a, type: 3}
+  - lockedClip: {fileID: 8300000, guid: 1ee74bc410a5bb34a8506e87c8788e6c, type: 3}
+  - unlockClip: {fileID: 8300000, guid: 819dfd6fc7fecc74eb28b85a50bbf65d, type: 3}
+  - needKey: {fileID: 11400000, guid: 8ef0551789fb3744eb342d6a1b7dd668, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
