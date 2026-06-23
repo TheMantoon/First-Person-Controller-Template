@@ -7,7 +7,11 @@ public class ApplicationControl : MonoBehaviour
 
     private void Awake() => Instance = this;
 
-    public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     public void Quit()
     {
