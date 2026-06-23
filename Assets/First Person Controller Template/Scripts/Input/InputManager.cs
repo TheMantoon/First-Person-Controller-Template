@@ -43,25 +43,31 @@ public class InputManager : MonoBehaviour
 
     public static void SetVector2(string action, Vector2 value) => virtualVector2s[action] = value;
 
-    public static bool GetButton(string action)
+    public static bool GetButton(string action, bool safe = true)
     {
         bool virtualValue = virtualButtons.TryGetValue(action, out bool pressed) && pressed;
         if (!TryGetAction(action, InputType.Button, out var data)) return virtualValue;
-        return virtualValue || Input.GetKey(data.button.primaryKey) || Input.GetKey(data.button.secondaryKey);
+        bool primary = safe ? GetKeySafe(data.button.primaryKey) : Input.GetKey(data.button.primaryKey);
+        bool secondary = safe ? GetKeySafe(data.button.secondaryKey) : Input.GetKey(data.button.secondaryKey);
+        return virtualValue || primary || secondary;
     }
 
-    public static bool GetButtonDown(string action)
+    public static bool GetButtonDown(string action, bool safe = true)
     {
         bool virtualDown = virtualButtonsDown.TryGetValue(action, out bool pressed) && pressed;
         if (!TryGetAction(action, InputType.Button, out var data)) return virtualDown;
-        return virtualDown || Input.GetKeyDown(data.button.primaryKey) || Input.GetKeyDown(data.button.secondaryKey);
+        bool primary = safe ? GetKeyDownSafe(data.button.primaryKey) : Input.GetKeyDown(data.button.primaryKey);
+        bool secondary = safe ? GetKeyDownSafe(data.button.secondaryKey) : Input.GetKeyDown(data.button.secondaryKey);
+        return virtualDown || primary || secondary;
     }
 
-    public static bool GetButtonUp(string action)
+    public static bool GetButtonUp(string action, bool safe = true)
     {
         bool virtualUp = virtualButtonsUp.TryGetValue(action, out bool pressed) && pressed;
         if (!TryGetAction(action, InputType.Button, out var data)) return virtualUp;
-        return virtualUp || Input.GetKeyUp(data.button.primaryKey) || Input.GetKeyUp(data.button.secondaryKey);
+        bool primary = safe ? GetKeyUpSafe(data.button.primaryKey) : Input.GetKeyUp(data.button.primaryKey);
+        bool secondary = safe ? GetKeyUpSafe(data.button.secondaryKey) : Input.GetKeyUp(data.button.secondaryKey);
+        return virtualUp || primary || secondary;
     }
 
     public static float GetAxis(string action)
@@ -113,11 +119,43 @@ public class InputManager : MonoBehaviour
         return keyboardValue;
     }
 
+    private static bool GetKeySafe(KeyCode key)
+{
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+    if (IsMouseKey(key))
+        return false;
+#endif
+
+    return Input.GetKey(key);
+}
+
+    private static bool GetKeyDownSafe(KeyCode key)
+    {
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        if (IsMouseKey(key)) return false;
+#endif
+        return Input.GetKeyDown(key);
+    }
+
+    private static bool GetKeyUpSafe(KeyCode key)
+    {
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        if (IsMouseKey(key)) return false;
+#endif
+        return Input.GetKeyUp(key);
+    }
+
     private static bool TryGetAction(string action, InputType expectedType, out InputActionData data)
     {
         data = null;
         if (Instance == null) return false;
         if (!Instance.actionMap.TryGetValue(action, out data)) return false;
         return data.inputType == expectedType;
+    }
+
+    private static bool IsMouseKey(KeyCode key)
+    {
+        return key == KeyCode.Mouse0 || key == KeyCode.Mouse1 || key == KeyCode.Mouse2 ||
+               key == KeyCode.Mouse3 || key == KeyCode.Mouse4 || key == KeyCode.Mouse5 || key == KeyCode.Mouse6;
     }
 }
