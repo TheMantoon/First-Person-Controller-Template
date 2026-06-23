@@ -34,6 +34,7 @@ public class GunSystem : MonoBehaviour
         if (item == null)
         {
             ammoText.color = new Color(1, 1, 1, Mathf.Lerp(ammoText.color.a, 0, Time.deltaTime * 5f));
+            if (isReloading) isReloading = false;
             currentGun = null;
             return;
         }
