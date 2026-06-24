@@ -12,10 +12,12 @@ public class GunSystem : MonoBehaviour
     private int ammo = 0;
     private GunComponent currentGun = null;
     private bool isReloading = false;
+    private bool itemState = false;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        ammo = GetComponent<ItemInteractable>().itemData.GetComponent<GunComponent>().maxAmmo;
     }
 
     private void Update()
@@ -30,10 +32,13 @@ public class GunSystem : MonoBehaviour
     private void UpdateCurrentGun()
     {
         var item = ItemManager.Instance?.takenItem?.itemData;
-        Text ammoText = PlayerInteraction.Instance.ammoText;
         if (item == null)
         {
-            ammoText.color = new Color(1, 1, 1, Mathf.Lerp(ammoText.color.a, 0, Time.deltaTime * 5f));
+            if (itemState)
+            {
+                PlayerInteraction.Instance.needItemInfo = false;
+                itemState = false;
+            }
             if (isReloading) isReloading = false;
             currentGun = null;
             return;
@@ -41,10 +46,15 @@ public class GunSystem : MonoBehaviour
         currentGun = item.GetComponent<GunComponent>();
         if (currentGun != null)
         {
+            if (!itemState || !PlayerInteraction.Instance.needItemInfo)
+            {
+                PlayerInteraction.Instance.needItemInfo = true;
+                itemState = true;
+            }
+            Text ammoText = PlayerInteraction.Instance.itemInfo;
             if (ammo > currentGun.maxAmmo) ammo = currentGun.maxAmmo;
             string ammoString = $"{ammo} / {currentGun.maxAmmo} Ammo";
             ammoText.text = !isReloading ? ammoString : ammoString + " (Reloading)";
-            ammoText.color = new Color(1, 1, 1, Mathf.Lerp(ammoText.color.a, 1, Time.deltaTime * 5f));
         }
     }
 

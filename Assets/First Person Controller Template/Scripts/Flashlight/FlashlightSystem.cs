@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashlightSystem : MonoBehaviour
 {
     [SerializeField] private Light flashlight = null;
-    private AudioSource audioSource;
-    private FlashlightComponent currentFlashlight;
-    private bool enabledFlashlight;
-    private float battery;
+    private AudioSource audioSource = null;
+    private FlashlightComponent currentFlashlight = null;
+    private bool enabledFlashlight = false;
+    private float battery = 0;
+    private bool itemState = false;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        battery = GetComponent<ItemInteractable>().itemData.GetComponent<FlashlightComponent>().batteryCapacity;
         if (flashlight != null) flashlight.enabled = false;
     }
 
@@ -33,17 +36,25 @@ public class FlashlightSystem : MonoBehaviour
         var item = ItemManager.Instance?.takenItem?.itemData;
         if (item == null)
         {
+            if (itemState)
+            {
+                PlayerInteraction.Instance.needItemInfo = false;
+                itemState = false;
+            }
             currentFlashlight = null;
             enabledFlashlight = false;
             return;
         }
-        FlashlightComponent newFlashlight = item.GetComponent<FlashlightComponent>();
-        if (newFlashlight != currentFlashlight)
+        currentFlashlight = item.GetComponent<FlashlightComponent>();
+        if (currentFlashlight != null)
         {
-            currentFlashlight = newFlashlight;
-            if (currentFlashlight != null) battery = currentFlashlight.batteryCapacity;
-            enabledFlashlight = false;
-            if (flashlight != null) flashlight.enabled = false;
+            if ((!itemState || !PlayerInteraction.Instance.needItemInfo) && currentFlashlight.useBattery)
+            {
+                PlayerInteraction.Instance.needItemInfo = true;
+                itemState = true;
+            }
+            Text batteryText = PlayerInteraction.Instance.itemInfo;
+            batteryText.text = $"{battery.ToString("F0")} / {currentFlashlight.batteryCapacity}";
         }
     }
 

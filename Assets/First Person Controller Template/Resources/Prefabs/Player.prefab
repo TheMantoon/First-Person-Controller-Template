@@ -2720,10 +2720,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   itemName: {fileID: 8695233100106115911}
-  ammoText: {fileID: 5218245265154422389}
+  itemInfo: {fileID: 5218245265154422389}
   crosshair: {fileID: 7109772649888943097}
   crosshairSprite: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
   handSprite: {fileID: 2800000, guid: 6cc1b787d6ee57049bd16373e0f09cf3, type: 3}
+  needItemInfo: 0
 --- !u!114 &2839609495290451964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3827,7 +3828,7 @@ GameObject:
   - component: {fileID: 5838593625672978636}
   - component: {fileID: 8763903524518585738}
   m_Layer: 5
-  m_Name: GunAmmo
+  m_Name: ItemInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,7 +3894,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0 / 0 Ammo
+  m_Text: 
 --- !u!114 &5838593625672978636
 MonoBehaviour:
   m_ObjectHideFlags: 0
