@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f880065f5c56e84abcd5d76b550fd07, type: 3}
+  m_Name: Template Flashlight Item Data
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Template Flashlight
+  dropSound: {fileID: 8300000, guid: f9098cb73ee00724ea6e0f8865c8eaae, type: 3}
+  minDropForce: 2
+  maxDropForce: 10
+  components:
+  - rid: 1392170292861993167
+  references:
+    version: 2
+    RefIds:
+    - rid: 1392170292861993167
+      type: {class: FlashlightComponent, ns: , asm: Assembly-CSharp}
+      data:
+        lightColor: {r: 1, g: 1, b: 1, a: 1}
+        intensity: 2
+        range: 20
+        spotAngle: 60
+        useBattery: 0
+        batteryCapacity: 120
+        batteryDrainPerSecond: 1
+        turnOnSound: {fileID: 8300000, guid: 056c3d7cf54ce9c45b5cdb45f8e3caf3, type: 3}
+        turnOffSound: {fileID: 8300000, guid: 8929bf7f40584e34bb3c274926f151b2, type: 3}

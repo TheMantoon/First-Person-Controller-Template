@@ -156,3 +156,16 @@ MonoBehaviour:
       down: 0
       left: 0
       right: 0
+  - actionName: Flashlight
+    inputType: 0
+    button:
+      primaryKey: 102
+      secondaryKey: 0
+    axis:
+      source: 1
+      sensitivity: 1
+    vector2:
+      up: 0
+      down: 0
+      left: 0
+      right: 0
