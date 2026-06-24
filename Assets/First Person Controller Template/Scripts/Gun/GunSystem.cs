@@ -77,7 +77,10 @@ public class GunSystem : MonoBehaviour
         isReloading = true;
         if (currentGun.reloadSound) audioSource.PlayOneShot(currentGun.reloadSound);
         yield return new WaitForSeconds(currentGun.reloadTime);
-        ammo = currentGun.maxAmmo;
-        isReloading = false;
+        if (currentGun != null)
+        {
+            ammo = currentGun.maxAmmo;
+            isReloading = false;
+        }
     }
 }

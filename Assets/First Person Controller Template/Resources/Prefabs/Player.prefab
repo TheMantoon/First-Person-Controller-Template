@@ -712,7 +712,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 503
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2739,6 +2739,8 @@ MonoBehaviour:
   surfaces:
   - {fileID: 11400000, guid: 9e2ba59f39cda9d4eaf56e0117b626ae, type: 2}
   - {fileID: 11400000, guid: b6b7e31dc0055ae43819bdb5c49fdd5b, type: 2}
+  - {fileID: 11400000, guid: a823e96a0a6618f498030c6307789945, type: 2}
+  - {fileID: 11400000, guid: 53ce0e0c26de0a74db8e15f3e43051b4, type: 2}
   groundDistance: 2
   audioSource: {fileID: 6160624377179872351}
 --- !u!114 &4474489174411149675
