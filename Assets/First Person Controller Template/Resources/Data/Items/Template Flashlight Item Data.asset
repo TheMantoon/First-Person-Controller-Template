@@ -28,7 +28,7 @@ MonoBehaviour:
         intensity: 2
         range: 20
         spotAngle: 60
-        useBattery: 0
+        useBattery: 1
         batteryCapacity: 120
         batteryDrainPerSecond: 1
         turnOnSound: {fileID: 8300000, guid: 056c3d7cf54ce9c45b5cdb45f8e3caf3, type: 3}

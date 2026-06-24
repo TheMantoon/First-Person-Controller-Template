@@ -8,12 +8,13 @@ public class FlashlightSystem : MonoBehaviour
     private FlashlightComponent currentFlashlight = null;
     private bool enabledFlashlight = false;
     private float battery = 0;
-    private bool itemState = false;
+    private ItemData itemData;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         battery = GetComponent<ItemInteractable>().itemData.GetComponent<FlashlightComponent>().batteryCapacity;
+        itemData = GetComponent<ItemInteractable>().itemData;
         if (flashlight != null) flashlight.enabled = false;
     }
 
@@ -34,13 +35,10 @@ public class FlashlightSystem : MonoBehaviour
     private void UpdateCurrentFlashlight()
     {
         var item = ItemManager.Instance?.takenItem?.itemData;
-        if (item == null)
+        Text batteryText = PlayerInteraction.Instance.flashlightBattery;
+        if (item == null || item != itemData)
         {
-            if (itemState)
-            {
-                PlayerInteraction.Instance.needItemInfo = false;
-                itemState = false;
-            }
+            batteryText.color = new Color(1, 1, 1, Mathf.Lerp(batteryText.color.a, 0, Time.deltaTime * 5f));
             currentFlashlight = null;
             enabledFlashlight = false;
             return;
@@ -48,13 +46,16 @@ public class FlashlightSystem : MonoBehaviour
         currentFlashlight = item.GetComponent<FlashlightComponent>();
         if (currentFlashlight != null)
         {
-            if ((!itemState || !PlayerInteraction.Instance.needItemInfo) && currentFlashlight.useBattery)
+            if (currentFlashlight.useBattery)
             {
-                PlayerInteraction.Instance.needItemInfo = true;
-                itemState = true;
+                batteryText.text = $"{battery:F0} / {currentFlashlight.batteryCapacity}";
+                batteryText.color = new Color(1, 1, 1, Mathf.Lerp(batteryText.color.a, 1, Time.deltaTime * 5f));
             }
-            Text batteryText = PlayerInteraction.Instance.itemInfo;
-            batteryText.text = $"{battery.ToString("F0")} / {currentFlashlight.batteryCapacity}";
+            else if (!currentFlashlight.useBattery)
+            {
+                batteryText.color = new Color(1, 1, 1, Mathf.Lerp(batteryText.color.a, 0, Time.deltaTime * 5f));
+                return;
+            }
         }
     }
 

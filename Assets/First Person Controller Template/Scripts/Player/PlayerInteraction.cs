@@ -8,11 +8,10 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float distance = 3f;
     [SerializeField] private LayerMask interactableMask = ~0;
     [SerializeField] private Text itemName = null;
-    public Text itemInfo = null;
+    public Text gunAmmo = null, flashlightBattery = null;
     [SerializeField] private RawImage crosshair = null;
     [SerializeField] private Texture2D crosshairSprite = null, handSprite = null;
     private IInteractable currentInteractable;
-    public bool needItemInfo = false;
 
     private void Awake() => Instance = this;
 
@@ -43,8 +42,5 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
         if (currentInteractable != null && !PlayerLook.Instance.paused && InputManager.GetButtonDown("Interact")) currentInteractable.Interact();
-
-        if (needItemInfo) itemInfo.color = new Color(1, 1, 1, Mathf.Lerp(itemInfo.color.a, 1, Time.deltaTime * 5f));
-        else itemInfo.color = new Color(1, 1, 1, Mathf.Lerp(itemInfo.color.a, 0, Time.deltaTime * 5f));
     }
 }
