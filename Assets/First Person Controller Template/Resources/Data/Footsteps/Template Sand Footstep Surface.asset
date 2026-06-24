@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88eba633469cd64ea9259bd4a0fd70d, type: 3}
+  m_Name: Template Sand Footstep Surface
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSurface
+  layers:
+    serializedVersion: 2
+    m_Bits: 512
+  clips:
+  - {fileID: 8300000, guid: d776cea7f6e441e4ebadc3a8b0dd20f8, type: 3}
+  - {fileID: 8300000, guid: c8750f03ae9cf944ea82cff2bcf50d9c, type: 3}
+  - {fileID: 8300000, guid: b0c20e81000f68b4193fbf153ed52aef, type: 3}
+  - {fileID: 8300000, guid: fa1d4d3d39c506a43911b74247008658, type: 3}
+  - {fileID: 8300000, guid: ed0e81ad73cad4340b535bdf3ecfd693, type: 3}

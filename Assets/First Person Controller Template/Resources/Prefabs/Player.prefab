@@ -713,7 +713,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2945,6 +2945,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6b7e31dc0055ae43819bdb5c49fdd5b, type: 2}
   - {fileID: 11400000, guid: a823e96a0a6618f498030c6307789945, type: 2}
   - {fileID: 11400000, guid: 53ce0e0c26de0a74db8e15f3e43051b4, type: 2}
+  - {fileID: 11400000, guid: 8b0fa2957bff26640ba9b7b37fc97c0e, type: 2}
   groundDistance: 2
   audioSource: {fileID: 6160624377179872351}
 --- !u!114 &4474489174411149675
@@ -3017,9 +3018,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
