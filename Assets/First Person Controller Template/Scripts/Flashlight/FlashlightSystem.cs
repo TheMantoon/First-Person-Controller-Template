@@ -9,6 +9,7 @@ public class FlashlightSystem : MonoBehaviour
     private bool enabledFlashlight = false;
     private float battery = 0;
     private ItemData itemData;
+    private GameObject mobileButton;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class FlashlightSystem : MonoBehaviour
         battery = GetComponent<ItemInteractable>().itemData.GetComponent<FlashlightComponent>().batteryCapacity;
         itemData = GetComponent<ItemInteractable>().itemData;
         if (flashlight != null) flashlight.enabled = false;
+        mobileButton = PlayerInteraction.Instance.falshlightButton;
     }
 
     private void Update()
@@ -24,8 +26,10 @@ public class FlashlightSystem : MonoBehaviour
         if (currentFlashlight == null)
         {
             if (flashlight != null) flashlight.enabled = false;
+            if (mobileButton.activeSelf == true) mobileButton.SetActive(false);
             return;
         }
+        if (mobileButton.activeSelf == false) mobileButton.SetActive(true);
         if (PlayerLook.Instance.paused) return;
         if (InputManager.GetButtonDown("Flashlight")) ToggleFlashlight();
         UpdateBattery();

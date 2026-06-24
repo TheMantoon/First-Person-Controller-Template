@@ -13,18 +13,28 @@ public class GunSystem : MonoBehaviour
     private GunComponent currentGun = null;
     private bool isReloading = false;
     private ItemData itemData;
+    private GameObject shootButton, reloadButton;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         ammo = GetComponent<ItemInteractable>().itemData.GetComponent<GunComponent>().maxAmmo;
         itemData = GetComponent<ItemInteractable>().itemData;
+        shootButton = PlayerInteraction.Instance.shootButton;
+        reloadButton = PlayerInteraction.Instance.reloadButton;
     }
 
     private void Update()
     {
         UpdateCurrentGun();
-        if (currentGun == null) return;
+        if (currentGun == null)
+        {
+            if (shootButton.activeSelf == true) shootButton.SetActive(false);
+            if (reloadButton.activeSelf == true) reloadButton.SetActive(false);
+            return;
+        }
+        if (shootButton.activeSelf == false) shootButton.SetActive(true);
+        if (reloadButton.activeSelf == false) reloadButton.SetActive(true);
         if (PlayerLook.Instance.paused) return;
         if (InputManager.GetButtonDown("Shoot")) Shoot();
         if (InputManager.GetButtonDown("Reload")) StartCoroutine(Reload());

@@ -11,6 +11,10 @@ public class PlayerInteraction : MonoBehaviour
     public Text gunAmmo = null, flashlightBattery = null;
     [SerializeField] private RawImage crosshair = null;
     [SerializeField] private Texture2D crosshairSprite = null, handSprite = null;
+    [Header("Mobile Buttons")]
+    public GameObject shootButton;
+    public GameObject reloadButton;
+    public GameObject falshlightButton;
     private IInteractable currentInteractable;
 
     private void Awake() => Instance = this;
