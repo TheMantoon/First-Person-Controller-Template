@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88eba633469cd64ea9259bd4a0fd70d, type: 3}
+  m_Name: Template Default Footstep Surface
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSurface
+  layers:
+    serializedVersion: 2
+    m_Bits: 65
+  clips:
+  - {fileID: 8300000, guid: cdd3299a9c57dde4ab1d5d20eb9c09f9, type: 3}
+  - {fileID: 8300000, guid: f6f4c09efa484a64ba69b36cb7bdc565, type: 3}
+  - {fileID: 8300000, guid: a19dcff1e8b81174cad4791bbfa3709b, type: 3}
+  - {fileID: 8300000, guid: eaa58f1df457595478e4aa514eb37ad9, type: 3}
+  - {fileID: 8300000, guid: add967bc09d3c0a498dcc4082c9a3d27, type: 3}

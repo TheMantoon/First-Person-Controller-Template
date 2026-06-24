@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float CurrentSpeed01 { get; private set; }
     public Vector3 Velocity => controller.velocity;
     public bool IsCrouching => isCrouching;
+    public bool OnGround => controller.isGrounded;
     [SerializeField] private Slider staminaSlider = null;
     [SerializeField] private CanvasGroup staminaCanvasGroup = null;
     public Transform cameraPivot = null;

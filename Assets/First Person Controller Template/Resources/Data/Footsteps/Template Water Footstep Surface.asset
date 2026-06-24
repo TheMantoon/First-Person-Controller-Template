@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88eba633469cd64ea9259bd4a0fd70d, type: 3}
+  m_Name: Template Water Footstep Surface
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSurface
+  layers:
+    serializedVersion: 2
+    m_Bits: 16
+  clips:
+  - {fileID: 8300000, guid: b08a77214932f64478ad4d8be64aa203, type: 3}
+  - {fileID: 8300000, guid: 4ff097819cf95d24fb0c15992224c2df, type: 3}
+  - {fileID: 8300000, guid: e6c64066cf86c7444be8905f343bec67, type: 3}
+  - {fileID: 8300000, guid: 53070f23661a5a64a94ca7af6b76e6f2, type: 3}
