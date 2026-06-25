@@ -228,7 +228,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118292071596932234}
+      - m_Target: {fileID: 6121771847035757952}
         m_TargetAssemblyTypeName: ApplicationControl, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118292071596932234}
+      - m_Target: {fileID: 6121771847035757952}
         m_TargetAssemblyTypeName: ApplicationControl, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 5227117919214978310}
   - component: {fileID: 4467190467312138585}
   - component: {fileID: 7759807321311903368}
+  - component: {fileID: 6121771847035757952}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1081,6 +1082,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   mobileUI: {fileID: 7400034373565255993}
+--- !u!114 &6121771847035757952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287736210238419338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3dc4ac2651c5142bd5cedd4c52cb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuitButton
 --- !u!1 &2626764864254119244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,7 +3844,6 @@ GameObject:
   - component: {fileID: 8863504687445039463}
   - component: {fileID: 7161863691664092740}
   - component: {fileID: 5534887124132790042}
-  - component: {fileID: 2118292071596932234}
   m_Layer: 5
   m_Name: PauseUI
   m_TagString: Untagged
@@ -3894,18 +3906,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2118292071596932234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783644493978445599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3dc4ac2651c5142bd5cedd4c52cb9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuitButton
 --- !u!1 &8330436126247049011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4062,7 +4062,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118292071596932234}
+      - m_Target: {fileID: 6121771847035757952}
         m_TargetAssemblyTypeName: ApplicationControl, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
