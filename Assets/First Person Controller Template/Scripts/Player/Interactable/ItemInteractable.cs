@@ -29,6 +29,7 @@ public class ItemInteractable : MonoBehaviour, IInteractable
         transform.localRotation = Quaternion.identity;
         ItemManager.Instance.takenItem = this;
         isTaken = true;
+        PlayerInteraction.Instance.dropButton.SetActive(true);
         foreach (var c in gameObject.GetComponentsInChildren<Transform>()) c.gameObject.layer = 3;
     }
 

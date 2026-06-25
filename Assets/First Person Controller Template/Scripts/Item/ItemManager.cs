@@ -26,6 +26,7 @@ public class ItemManager : MonoBehaviour
         rigidbody.AddTorque(Random.insideUnitSphere * 2f, ForceMode.Impulse);
         rigidbody.AddForce(throwForce, ForceMode.Impulse);
         foreach (var c in takenItem.GetComponentsInChildren<Transform>()) c.gameObject.layer = 6;
+        PlayerInteraction.Instance.dropButton.SetActive(false);
         takenItem.isTaken = false;
         takenItem = null;
     }

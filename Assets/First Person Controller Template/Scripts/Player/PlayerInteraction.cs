@@ -13,8 +13,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Texture2D crosshairSprite = null, handSprite = null;
     [Header("Mobile Buttons")]
     public GameObject shootButton;
-    public GameObject reloadButton;
-    public GameObject falshlightButton;
+    public GameObject reloadButton, falshlightButton, dropButton, interactButton;
     private IInteractable currentInteractable;
 
     private void Awake() => Instance = this;
@@ -35,6 +34,7 @@ public class PlayerInteraction : MonoBehaviour
                 itemName.gameObject.SetActive(true);
                 itemName.text = currentInteractable.GetName();
                 crosshair.texture = handSprite;
+                interactButton.SetActive(true);
                 crosshair.rectTransform.sizeDelta = new Vector2(48, 48);
             }
             else
@@ -42,6 +42,7 @@ public class PlayerInteraction : MonoBehaviour
                 itemName.gameObject.SetActive(false);
                 itemName.text = string.Empty;
                 crosshair.texture = crosshairSprite;
+                interactButton.SetActive(false);
                 crosshair.rectTransform.sizeDelta = new Vector2(16, 16);
             }
         }

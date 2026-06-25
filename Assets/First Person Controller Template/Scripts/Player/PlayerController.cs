@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool isCrouching = false;
     private float stamina;
     private float regenBlockedUntil;
+    private bool crouchToggled;
 
     private void Awake()
     {
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isCrouching = !useCrouch ? false : InputManager.GetButton("Crouch") ? true : !CanStand();
+        UpdateCrouch();
         UpdateStamina();
         Move();
         HandleCrouch();
@@ -67,6 +68,26 @@ public class PlayerController : MonoBehaviour
         CurrentSpeed01 = horizontal.magnitude / sprintSpeed;
         Vector3 vertical = Vector3.up * velocity.y;
         controller.Move((horizontal + vertical) * Time.deltaTime);
+    }
+
+    private void UpdateCrouch()
+    {
+        if (!useCrouch)
+        {
+            isCrouching = false;
+            return;
+        }
+        if (ApplicationControl.Instance.GetCrouchMode() == CrouchMode.Hold) isCrouching = InputManager.GetButton("Crouch");
+        else
+        {
+            if (InputManager.GetButtonDown("Crouch"))
+            {
+                if (!crouchToggled) crouchToggled = true;
+                else if (CanStand()) crouchToggled = false;
+            }
+            isCrouching = crouchToggled;
+        }
+        if (!isCrouching && !CanStand()) isCrouching = true;
     }
 
     private void UpdateStamina()

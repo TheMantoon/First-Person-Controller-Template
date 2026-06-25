@@ -7,10 +7,20 @@ public class ApplicationControl : MonoBehaviour
 
     private void Awake() => Instance = this;
 
+    public void SetCrouchMode(int set) => PlayerPrefs.SetInt("CrouchMode", set);
+
+    public CrouchMode GetCrouchMode() => (CrouchMode)PlayerPrefs.GetInt("CrouchMode", 0);
+
     public void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
 
     public void Quit()
