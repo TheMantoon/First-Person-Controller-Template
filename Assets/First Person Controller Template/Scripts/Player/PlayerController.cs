@@ -132,9 +132,13 @@ public class PlayerController : MonoBehaviour
 
     private bool CanStand()
     {
-        Vector3 center = transform.position + Vector3.up * (standingHeight / 2f);
-        return !Physics.CheckCapsule(center + Vector3.up * (standingHeight / 2f - controller.radius),
-            center - Vector3.up * (standingHeight / 2f - controller.radius), controller.radius,
+        float scaleY = transform.lossyScale.y;
+        float scaleX = transform.lossyScale.x;
+        float radius = controller.radius * scaleX;
+        float height = standingHeight * scaleY;
+        Vector3 center = transform.position + Vector3.up * (height / 2f);
+        return !Physics.CheckCapsule(center + Vector3.up * (height / 2f - radius),
+            center - Vector3.up * (height / 2f - radius), radius,
             obstacleMask, QueryTriggerInteraction.Ignore);
     }
 }
